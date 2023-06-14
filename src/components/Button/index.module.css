@@ -1,0 +1,12 @@
+.btn {
+    @apply rounded-md px-3 py-2 mx-1 text-sm;
+    background-color: #0ba37f;
+}
+
+.btnMaxWidth {
+    @apply w-full ml-0 text-white py-4
+}
+
+.bthSocial {
+    @apply px-5 text-center bg-white inline-flex items-center text-black border border-gray-300 text-base
+}

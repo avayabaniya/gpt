@@ -1,0 +1,11 @@
+.input {
+    @apply border border-gray-300 rounded-sm w-full p-3 
+}
+
+.input:focus {
+    border: 1px solid #0ba37f !important
+}
+
+.input:focus-visible {
+    border: 1px solid #0ba37f !important
+}
