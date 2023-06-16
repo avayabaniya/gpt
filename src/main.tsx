@@ -1,19 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import Auth from './pages/auth'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'
 import Login from './pages/auth/login.tsx';
 import Register from './pages/auth/register.tsx';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Sidebar } from './layout';
 
 
 const router = createBrowserRouter([
+  { path: "/", element: <Sidebar />, children: [{ path: "/", element: <div>Test</div> }] },
   {
-    path: '/',
-    element: <App />
+    path: '/auth',
+    element: <Auth />
   },
-
   {
     path: '/auth/login',
     element: <Login />

@@ -1,5 +1,5 @@
 .btn {
-    @apply rounded-md px-3 py-2 mx-1 text-sm;
+    @apply rounded-md px-3 py-2 text-sm;
     background-color: #0ba37f;
 }
 
@@ -9,4 +9,9 @@
 
 .bthSocial {
     @apply px-5 text-center bg-white inline-flex items-center text-black border border-gray-300 text-base
+}
+
+.btnOutline {
+    @apply flex p-3 justify-center items-center transition-colors duration-200 text-white cursor-pointer text-sm rounded-md border border-white/20 hover:bg-gray-500/10 h-11  flex-grow;
+    background: transparent;
 }

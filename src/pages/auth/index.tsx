@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import '../App.css'
-import { Button } from '../components';
+import '../../App.css'
+import { Button } from '../../components';
 
-function Home() {
+function Auth() {
     return (
         <div className="container flex flex-col h-screen">
             <div className='flex flex-col h-full items-center justify-center text-center'>
@@ -31,5 +31,5 @@ function Home() {
     );
 }
 
-export default Home
+export default Auth
 

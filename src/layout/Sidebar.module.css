@@ -1,0 +1,14 @@
+.sidebar {
+    background-color: #202123;
+}
+
+.scrollableContainer {
+    @apply flex flex-grow flex-col h-2/3 overflow-y-auto overflow-x-hidden flex-1;
+    height: calc(100% - 56px - 32px);
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.scrollableContainer::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
