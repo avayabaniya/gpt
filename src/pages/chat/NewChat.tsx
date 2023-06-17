@@ -53,6 +53,7 @@ export const NewChat = () => {
             },
           }}
           onSubmit={handleSubmit}
+          isLoading={isLoading}
         />
         <p className="mt-2 text-sm text-center">
           Free Research Preview. ChatGPT may produce inaccurate information

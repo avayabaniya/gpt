@@ -25,3 +25,23 @@ export const useLogin = () => {
     },
   });
 };
+
+interface RegisterPayload {
+  email: string;
+  password: string;
+}
+
+interface RegisterResponse {
+  access_token: string
+}
+
+export const useRegister = () => {
+  return useMutation({
+    mutationFn: (payload: RegisterPayload) => {
+      return axios.post<RegisterResponse>(
+        "/auth/registration",
+        { ...payload, username: payload.email}
+      );
+    },
+  });
+};

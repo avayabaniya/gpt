@@ -13,11 +13,11 @@ function Auth() {
                 Login with your OpenAI account to continue
 
                 <div className='my-4'>
-                    <Link to={`auth/login`}>
+                    <Link to="/auth/login">
                         <Button>Log in</Button>
                     </Link>
                     &nbsp;
-                    <Link to={`auth/register`}>
+                    <Link to="/auth/register">
                         <Button>Sign up</Button>
                     </Link>
                 </div>
