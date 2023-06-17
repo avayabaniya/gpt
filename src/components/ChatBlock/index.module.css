@@ -1,0 +1,13 @@
+.sentMessage {
+    @apply w-full h-auto flex justify-center py-4;
+    background: #343541;
+}
+
+.receivedMessage {
+    @apply w-full h-auto flex justify-center py-4;
+    background: #434654;
+}
+
+.content {
+    width: calc(100% - 46px);
+}

@@ -1,0 +1,18 @@
+.input {
+    @apply m-0 w-full resize-none border-0 bg-transparent p-0 pr-10 focus:ring-0 focus-visible:ring-0 dark:bg-transparent md:pr-12 pl-3 md:pl-0;
+    height: 24px;
+    max-height: 200px;
+    overflow-y: hidden;
+    
+}
+
+.input:focus-visible {
+    @apply outline-none;
+}
+
+
+
+.container {
+    @apply flex items-center w-full py-[10px] flex-grow md:py-3 md:pl-4 relative rounded-xl;
+    background: #40414f;
+}

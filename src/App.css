@@ -2,4 +2,8 @@
   color: #0ba37f;
 }
 
+.chat-history-panel {
+  height: calc(100vh - 96px);
+}
+
 

@@ -2,14 +2,38 @@ import { Button } from "../../components";
 import { Input } from "../../components/Input";
 import "../../App.css"
 import { useGoogleLogin } from "@react-oauth/google";
+import { useEffect, useState } from "react";
+import { useLogin } from "./queries";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 
 function Login () {
 
+    const navigate = useNavigate();
 
-    // const loginWithGoogle = () => {
-    //     alert("googlr")
-    // }
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const {mutateAsync, isError} = useLogin();
+
+    useEffect(() => {
+        if (isError) {
+            toast.error("Error")
+        }
+
+    }, [isError])
+    
+    const handleLogin = async () => {
+        const {data} = await mutateAsync({email, password})
+
+        localStorage.setItem("access_token", data.access_token)
+        navigate("/")
+    }
+
+
+
 
     const loginWithGoogle = useGoogleLogin({
         onSuccess: codeResponse => console.log(codeResponse)
@@ -28,9 +52,10 @@ function Login () {
                             <h1 className="font-bold tracking-wide mt-6">Welcome back</h1>
                         </header>
 
-                        <Input name="email" placeholder="Email address" value="" />
+                        <Input name="email" placeholder="Email address" value={email} className="mb-2" inputProps={{onChange: (e) => setEmail(e.target.value)}}/>
+                        <Input name="password" placeholder="Password" value={password} inputProps={{type: "password", onChange: (e) => setPassword(e.target.value)}}/>
                         <div className="mt-6">
-                            <Button maxWidth={true}>Continue</Button>
+                            <Button maxWidth={true} onClick={handleLogin}>Continue</Button>
                         </div>
                         
                         <div className="mt-4">
@@ -71,6 +96,7 @@ function Login () {
                 <div className='py-3 mx-auto text-sm text-green pt-20'>
                         Terms of user | Private Policy
                 </div>
+                <ToastContainer />
             </div>
         
     );

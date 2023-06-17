@@ -3,7 +3,7 @@
 }
 
 .scrollableContainer {
-    @apply flex flex-grow flex-col h-2/3 overflow-y-auto overflow-x-hidden flex-1;
+    @apply flex flex-grow flex-col h-2/3 overflow-y-auto overflow-x-hidden flex-1 mt-2;
     height: calc(100% - 56px - 32px);
 
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
