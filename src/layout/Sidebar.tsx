@@ -4,7 +4,7 @@ import { Button } from "../components";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsChatLeft } from "react-icons/bs";
 import { RxPerson } from "react-icons/rx";
-import { FiLogOut, FiMoreHorizontal } from "react-icons/fi";
+import { FiLogOut } from "react-icons/fi";
 import { useChatList } from "./queries";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
@@ -69,7 +69,7 @@ export const Sidebar = () => {
 
           <div className={styles.scrollableContainer}>
             {isSuccess &&
-              data.data.map(({ chatId, createdAt, title }) => (
+              data.data.map(({ chatId, title }) => (
                 <NavLink
                   to={`/${chatId}`}
                   key={chatId}
@@ -96,7 +96,7 @@ export const Sidebar = () => {
                   {username}
                 </div>
               </div>
-              <div className="bg-red-500 p-[3px] rounded-sm" onClick={handleLogout}>
+              <div className="hover:bg-red-500 p-[3px] rounded-sm" onClick={handleLogout}>
                 <FiLogOut />
               </div>
             </div>

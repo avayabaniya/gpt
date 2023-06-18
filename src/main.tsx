@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import Auth from "./pages/auth";
 import {
   createBrowserRouter,
   RouterProvider,
-  useNavigate,
 } from "react-router-dom";
 import "./index.css";
 import Login from "./pages/auth/login.tsx";

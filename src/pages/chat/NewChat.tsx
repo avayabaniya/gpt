@@ -63,7 +63,3 @@ export const NewChat = () => {
     </div>
   );
 };
-function mutateAsync(arg0: { chatId: any; chatMessage: string; }) {
-  throw new Error("Function not implemented.");
-}
-

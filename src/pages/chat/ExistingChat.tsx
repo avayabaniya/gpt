@@ -2,8 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { ChatBlock, ChatInput } from "../../components";
 import { useParams } from "react-router-dom";
 import { useChatHistory, useSendMessage } from "./queries";
-import { SyncLoader } from "react-spinners";
-import PullToRefresh from "react-pull-to-refresh";
 
 export const ExistingChat = () => {
   const { chatId } = useParams();
@@ -31,12 +29,8 @@ export const ExistingChat = () => {
   const {
     data,
     isSuccess,
-    fetchNextPage,
-    isFetchingNextPage,
     hasNextPage,
-    refetch,
-    isRefetching,
-    isFetched,
+    refetch
   } = useChatHistory(chatId || "");
   const { mutateAsync, isLoading } = useSendMessage();
 

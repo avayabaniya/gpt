@@ -3,7 +3,7 @@ import { Input } from "../../components/Input";
 import "../../App.css";
 import { useGoogleLogin } from "@react-oauth/google";
 import { useEffect, useState } from "react";
-import { useLogin } from "./queries";
+import { GoogleOauthPayload, useGoogleOAuth, useLogin } from "./queries";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -16,6 +16,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const { mutateAsync, isError } = useLogin();
+  const { mutateAsync : mutateAsyncGoogle } = useGoogleOAuth()
 
   useEffect(() => {
     if (isError) {
@@ -34,8 +35,24 @@ function Login() {
     navigate("/");
   };
 
-  const loginWithGoogle = useGoogleLogin({
-    onSuccess: (codeResponse) => console.log(codeResponse),
+  const loginWithGoogle =  useGoogleLogin({
+    //ux_mode: "redirect",
+    //redirect_uri: "http://localhost:8081/login/oauth2/code/google",
+    onSuccess: async (codeResponse) => {
+        console.log(codeResponse)
+        console.log("data from google login")
+        const { data } = await mutateAsyncGoogle(codeResponse as GoogleOauthPayload);
+
+        console.log("data from backend")
+        console.log(data)
+
+        localStorage.setItem("access_token", data.access_token);
+        const decoded  = jwt_decode<JwtPayload>(data.access_token)
+        localStorage.setItem("username", decoded.sub || "");
+    
+        navigate("/");
+    },
+    flow: 'implicit',
   });
 
   return (
