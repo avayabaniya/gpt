@@ -3,7 +3,8 @@ import axios from "axios";
 
 
 const privateInstance = axios.create({
-  baseURL : 'http://127.0.0.1:8081/',
+  //baseURL : 'http://127.0.0.1:8081/',
+  baseURL : 'http://gpt1.silkinv.com/',
   headers: {
     'Content-Type': 'application/json',
   }, 
